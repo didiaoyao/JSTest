@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组去重</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*function num(ary) {
+        var tempAry = ary;
+        var obj = {};
+        var objIndex = null;
+
+        for(var i = 0;i < tempAry.length;i ++){
+            objIndex = tempAry[i];
+            if(obj[objIndex] === tempAry[i]){
+                tempAry[i] = tempAry[tempAry.length - 1];
+                tempAry.length --;
+                i --;
+                continue;
+            }
+            obj[objIndex] = objIndex;
+        }
+        return tempAry;
+    }*/
+    function aryUnique(ary) {
+        //var tempAry = ary;
+        for(var i = 0;i < ary.length - 1;i ++){
+            for(var j = i + 1;j < ary.length;j ++){
+                if(ary[i] ===ary[j]){
+                    ary.splice(j,1);
+                    j --;
+                }
+            }
+        }
+        return ary;
+    }
+    var ary = [1,1,1,1,2,2,2,2,3,3,4,4,5,5,4,4,3,3,3,2,2,1,1,1];
+    console.log(aryUnique(ary));
+</script>
